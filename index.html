@@ -148,7 +148,7 @@
     <header>
       <p class="kicker">One-page setup path</p>
       <h1>Luke's Beginner Guide to Codex, Git, and GitHub</h1>
-      <p class="subtitle">The goal is simple: install the tools once, connect your GitHub account, make a real project folder, and use Codex where it can actually read files, edit code, run commands, and push work back to GitHub.</p><p class="subtitle"><a href="luke-codex-github-guide.pdf">Download the PDF version</a></p>
+      <p class="subtitle">The goal is simple: do the setup once, connect your GitHub account, then mostly work through the Codex and GitHub screens instead of typing commands.</p><p class="subtitle"><a href="luke-codex-github-guide.pdf">Download the PDF version</a></p>
     </header>
 
     <main>
@@ -187,75 +187,72 @@
       </section>
 
       <section>
-        <h2>Step 2: Install the Basic Tools on Windows</h2>
-        <p>Open <strong>PowerShell</strong> and run these one at a time:</p>
-        <pre><code>winget install Codex -s msstore
-winget install --id Git.Git
-winget install --id GitHub.cli
-winget install --id OpenJS.NodeJS.LTS
-winget install --id Python.Python.3.14</code></pre>
-        <p class="small">If Windows asks to approve installs, approve them. After installs finish, close and reopen PowerShell.</p>
-      </section>
-
-      <section>
-        <h2>Step 3: Sign In</h2>
+        <h2>Step 2: Install the Basic Tools</h2>
+        <p>Use the normal installers wherever possible. The point is not to become a terminal person; the point is to give Codex the tools it needs behind the scenes.</p>
         <ol>
-          <li>Open the Codex app and sign in with your ChatGPT account.</li>
-          <li>In PowerShell, check Codex exists:</li>
+          <li>Install <strong>Codex</strong> from the Microsoft Store.</li>
+          <li>Install <strong>Git for Windows</strong> from <a href="https://git-scm.com/download/win">git-scm.com/download/win</a>.</li>
+          <li>Install <strong>VS Code</strong> from <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.</li>
+          <li>Optional for later: install <strong>GitHub Desktop</strong> from <a href="https://desktop.github.com/">desktop.github.com</a> if you want a visual way to commit, push, and manage branches.</li>
         </ol>
-        <pre><code>codex --version</code></pre>
-        <ol start="3">
-          <li>Connect GitHub in the terminal:</li>
-        </ol>
-        <pre><code>gh auth login</code></pre>
-        <p>Choose GitHub.com, browser login, and HTTPS unless you already know you need SSH.</p>
+        <p class="small">If an installer asks for choices, accept the defaults. After installing, restart Codex so it can detect the tools.</p>
       </section>
 
       <section>
-        <h2>Step 4: Make a Real Project Folder</h2>
+        <h2>Step 3: Sign In and Connect GitHub</h2>
+        <ol>
+          <li>Open the Codex app.</li>
+          <li>Sign in with your ChatGPT account. This is the easiest path for normal use.</li>
+          <li>In Codex, open settings or connections and connect your GitHub account if the app prompts for it.</li>
+          <li>In GitHub, approve the connection for the repositories you want Codex to use.</li>
+        </ol>
+        <p class="small">If Codex cannot see GitHub later, then use the command fallback at the bottom. But try the app connection first.</p>
+      </section>
+
+      <section>
+        <h2>Step 4: Make or Open a Project</h2>
         <p>Use a normal local folder. This keeps Codex, Git, and GitHub working together cleanly.</p>
-        <pre><code>mkdir C:\Users\Luke\Documents\GitHub
-cd C:\Users\Luke\Documents\GitHub
-mkdir rent-everything
-cd rent-everything
-git init</code></pre>
-        <p>Open this folder in Codex. This is now the workspace Codex can safely read and edit.</p>
+        <ol>
+          <li>Create a folder in File Explorer, for example <code>Documents\GitHub\rent-everything</code>.</li>
+          <li>Open Codex and choose <strong>Add project</strong> or <strong>Open folder</strong>.</li>
+          <li>Select that folder.</li>
+          <li>When Codex asks about permissions, start with the default setting where it asks before risky actions.</li>
+        </ol>
+        <p>If the project already exists on GitHub, use Codex or GitHub Desktop to clone/open it locally instead of starting from an empty folder.</p>
       </section>
 
       <section>
         <h2>Step 5: Let Codex Prove It Works</h2>
         <p>In Codex, start with a small test prompt:</p>
         <pre><code>Create a README.md for a simple app called Rent Everything.
-Make a dev branch first. Do not push until I approve.</code></pre>
-        <p>Then check the result:</p>
-        <pre><code>git status
-git branch</code></pre>
-        <p>If you see a changed <code>README.md</code> and a branch like <code>dev</code>, you have the basic loop working.</p>
+Create or use a dev branch first.
+Do not push until I approve.
+Show me what changed when you are done.</code></pre>
+        <p>Codex should show changed files in the review/diff screen. If you can see the new <code>README.md</code>, the basic loop is working.</p>
       </section>
 
       <section>
-        <h2>Step 6: Put It on GitHub</h2>
-        <p>Create the empty repository on GitHub first if permissions block the terminal from creating it. Then connect your local folder:</p>
-        <pre><code>git add .
-git commit -m "Start Rent Everything guide project"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/rent-everything.git
-git push -u origin main</code></pre>
-        <p>For future work, use a branch:</p>
-        <pre><code>git checkout -b dev</code></pre>
+        <h2>Step 6: Put It on GitHub Without Living in Commands</h2>
+        <ol>
+          <li>Go to GitHub and create a new repository, for example <code>rent-everything</code>.</li>
+          <li>Use Codex, GitHub Desktop, or VS Code Source Control to publish the local folder to that repository.</li>
+          <li>Use a <code>dev</code> branch for work in progress.</li>
+          <li>When the change looks good, open a pull request on GitHub and merge it into <code>main</code>.</li>
+        </ol>
+        <p class="small">The command line can do all of this, but Luke's normal workflow should be Codex for changes and GitHub/GitHub Desktop for review, branches, commits, and pushes.</p>
       </section>
 
       <section>
         <h2>The Workflow to Remember</h2>
         <div class="grid">
           <div class="card">
-            <h3>Daily Build Loop</h3>
+            <h3>Daily GUI Build Loop</h3>
             <ol>
               <li>Open the project folder in Codex.</li>
               <li>Tell Codex the exact goal.</li>
               <li>Let it change files and run checks.</li>
-              <li>Review the diff.</li>
-              <li>Commit and push when it works.</li>
+              <li>Review the changed files in Codex.</li>
+              <li>Commit/push from Codex, GitHub Desktop, or VS Code.</li>
             </ol>
           </div>
           <div class="card">
@@ -276,7 +273,7 @@ Stop before pushing.</code></pre>
       <section>
         <h2>Terms That Were Confusing in the Demo</h2>
         <ul>
-          <li><strong>Terminal / PowerShell:</strong> the place where commands run.</li>
+          <li><strong>Terminal / PowerShell:</strong> the backup place where commands run when the GUI cannot finish something.</li>
           <li><strong>VS Code:</strong> a good editor for reading files, Markdown, and code.</li>
           <li><strong>Markdown:</strong> plain text files ending in <code>.md</code>; readable by people and easy for AI to use.</li>
           <li><strong>Branch:</strong> a working copy of the project. Use <code>dev</code> for changes before they go live.</li>
@@ -289,9 +286,9 @@ Stop before pushing.</code></pre>
         <h2>When Something Gets Stuck</h2>
         <ol>
           <li>Check whether Codex is waiting for approval.</li>
-          <li>Run <code>git status</code> to see what changed.</li>
-          <li>Make sure PowerShell is in the right folder with <code>pwd</code>.</li>
-          <li>If GitHub fails, run <code>gh auth status</code> and log in again if needed.</li>
+          <li>Look at the changed files in Codex, VS Code, or GitHub Desktop.</li>
+          <li>Make sure Codex opened the correct project folder.</li>
+          <li>If GitHub fails, reconnect GitHub in Codex or GitHub Desktop.</li>
           <li>If the task got too big, start a new Codex thread with a smaller request.</li>
         </ol>
       </section>
@@ -300,13 +297,21 @@ Stop before pushing.</code></pre>
         <h2>What Success Looks Like</h2>
         <ul class="checklist">
           <li>Codex opens and is signed in.</li>
-          <li><code>codex --version</code> works in PowerShell.</li>
-          <li><code>git --version</code> works.</li>
-          <li><code>gh auth status</code> says you are logged into GitHub.</li>
+          <li>Codex can open the project folder.</li>
+          <li>GitHub is connected to Codex or GitHub Desktop.</li>
           <li>You have a local project folder under <code>Documents\GitHub</code>.</li>
           <li>Codex can create or edit a file in that folder.</li>
           <li>You can commit and push that file to GitHub.</li>
         </ul>
+      </section>
+
+      <section>
+        <h2>Only If the GUI Gets Stuck</h2>
+        <p>These are backup commands, not the normal workflow. Use them when Codex, GitHub Desktop, or VS Code cannot tell what is happening.</p>
+        <pre><code>codex --version
+git --version
+git status
+gh auth status</code></pre>
       </section>
     </main>
 
