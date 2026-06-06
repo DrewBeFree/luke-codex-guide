@@ -14,3 +14,18 @@
 **Next up:**
 - Wait for GitHub Pages certificate provisioning, then enable/verify HTTPS for `https://luke.drewbefree.com`.
 - Review the guide in-browser after DNS/HTTPS settles and adjust wording/design if Luke needs a shorter version.
+
+## 2026-06-06 (GUI-first Luke guide revision)
+
+**What we did:**
+- Revised the Luke Codex guide so the normal workflow is GUI-first after initial setup.
+- Changed setup steps to use installers, Codex app, GitHub connection screens, VS Code, and optional GitHub Desktop.
+- Moved terminal commands into an "Only If the GUI Gets Stuck" fallback section.
+- Regenerated and pushed the matching PDF.
+
+**Where we stopped:**
+- `DrewBeFree/luke-codex-guide` has the GUI-first HTML and PDF on `main` and `dev`.
+- Local repo is `C:\Users\drewb\Documents\GitHub\sites\luke-codex-guide` on `dev`.
+
+**Next up:**
+- Re-check `luke.drewbefree.com` after GitHub Pages finishes rebuilding and HTTPS certificate provisioning settles.
