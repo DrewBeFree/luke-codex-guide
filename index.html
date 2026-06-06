@@ -88,6 +88,20 @@
       font-size: 13px;
       line-height: 1.35;
     }
+    pre code {
+      display: block;
+      background: transparent;
+      border: 0;
+      border-radius: 0;
+      color: #f4fbfb;
+      padding: 0;
+      white-space: pre;
+    }
+    pre code::selection,
+    pre::selection {
+      background: #d7f2ff;
+      color: #102027;
+    }
     .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
     .card {
       background: var(--panel);
